@@ -96,6 +96,7 @@ if uploaded_file and df is not None:
 
         elif chart_type == "Ящик с усами (Boxplot)":
             fig = px.box(df, y=column, points="all", hover_data=df.columns)
+            fig.update_traces(jitter=0, pointpos=0)
             st.plotly_chart(fig)
 
             q1 = df[column].quantile(0.25)
